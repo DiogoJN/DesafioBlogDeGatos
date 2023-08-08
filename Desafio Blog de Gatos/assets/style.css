@@ -15,8 +15,8 @@
 
   --color-base: hsla(195, 91%, 25%, 1);
   --color-base-100: hsla(195, 46%, 40%, 1);
-  --bg-color-logo: hsla(196, 100%, 98%, 1);
-  --desktop-color: hsla(0, 0%, 100%, 1);
+  --bg-color: hsla(196, 100%, 98%, 1);
+  --white-color: hsla(0, 0%, 100%, 1);
 
   --font-app: 'Mulish', sans-serif;
 }
@@ -38,7 +38,7 @@ header {
 }
 
 header #logo {
-  background-color: var(--bg-color-logo);
+  background-color: var(--bg-color);
   width: 4rem;
   height: 4rem;
   border-radius: 2rem;
@@ -75,7 +75,7 @@ header .input-wrapper input {
 }
 
 header .input-wrapper input::placeholder {
-  color: var(--desktop-color);
+  color: var(--white-color);
   padding-left: 1.4rem;
   font-family: var(--font-app);
   font-size: 16px;
@@ -195,16 +195,39 @@ footer p {
 @media(min-width: 890px) {
   .app {
     max-width: none;
+    background-color: hsl(196, 100%, 98%); 
+    display: grid;
+    grid-template: 
+    "A A A"
+    "B B C"
+    "D D D";
   }
 
   header {
     margin-bottom: 4.4rem;
+    grid-area: A;
   }
+
+  header form {
+    margin: 0 auto;
+  }
+
   .input-wrapper #search {
     width: 111.4rem;
   }
 
+  main {
+    grid-area: B;
+  }
+
   main #coverCat {
+    width: 80rem;
+    height: 40rem;
+
+    margin-left: 10.9rem;
+  }
+
+  main P {
     width: 80rem;
     height: 40rem;
   }
