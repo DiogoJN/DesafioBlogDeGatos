@@ -22,7 +22,7 @@
 }
 
 .app {
-  max-width: 43rem;
+ max-width: 43rem;
   margin-inline: auto;
 }
 
@@ -33,6 +33,7 @@ header {
   height: 7.2rem;
   padding: 1.2rem 2.8rem;
   display: flex;
+  justify-content: center;
   align-items: center;
   gap: 2.6rem;
 }
@@ -135,11 +136,11 @@ main p {
 
 /* Estilização do Article */
 
-main article h2 {
+main .sideBar h2 {
   margin-bottom: 2.4rem;
 }
 
-main article {
+main .sideBar {
   list-style: none;
 }
 
@@ -151,7 +152,10 @@ article .testGrid {
 
   padding-left: 2.2rem;
   gap: .4rem 1.5rem;
+  height: 11.5rem;
+  margin-bottom: 3.2rem;
 }
+
 
 .testGrid img {
   width: 15rem;
@@ -176,7 +180,7 @@ article .testGrid {
   grid-area: C;
 
   margin-right: 6.4rem;
-}
+} 
 
 footer {
   font-family: var(--font-app);
@@ -186,26 +190,55 @@ footer {
 }
 
 footer p {
-  color: var(--desktop-color);
+  color: var(--white-color);
   text-align: center;
   font-size: 1.6rem;
   padding-top: 2.6rem;
 }
 
+header {
+  --startY: -100%;
+  animation: move .2s;
+}
+
+/* footer {
+  --startY: -100%;
+  animation: move .2s;
+} */
+
+@keyframes move {
+  from {
+    transform: translateY(var(--startY));
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @media(min-width: 890px) {
   .app {
-    max-width: none;
+    max-width: 100%;
     background-color: hsl(196, 100%, 98%); 
-    display: grid;
-    grid-template: 
-    "A A A"
-    "B B C"
-    "D D D";
   }
 
   header {
     margin-bottom: 4.4rem;
-    grid-area: A;
   }
 
   header form {
@@ -215,9 +248,31 @@ footer p {
   .input-wrapper #search {
     width: 111.4rem;
   }
-
+  
   main {
+    display: grid;
+    grid-template-areas: 
+    "A A D"
+    "B B D"
+    "C C D";
+    /* overflow: scroll;
+    height: 100vh; */
+  }
+
+  main figcaption {
+    grid-area: A;
+  }
+
+  main .container {
     grid-area: B;
+  }
+
+  main p {
+    grid-area: C;
+  }
+
+  main .sideBar {
+    grid-area: D;
   }
 
   main #coverCat {
@@ -227,8 +282,30 @@ footer p {
     margin-left: 10.9rem;
   }
 
-  main P {
+  main .container {
+    display: flex;
+    gap: 34.2rem;
+    margin-left: 8.6rem;
+    margin-bottom: 3.1rem;
+  }
+
+  main .paragraphyMain {
     width: 80rem;
     height: 40rem;
+    margin-left: 10.9rem;
   }
+
+  main .sideBar {
+    padding-left: 5.5rem;
+  }
+
+  ol p {
+    height: 5.5rem;
+  }
+
+  ol {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
 }
