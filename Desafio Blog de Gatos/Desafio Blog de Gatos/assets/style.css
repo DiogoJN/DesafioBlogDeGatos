@@ -1,0 +1,308 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Variáveis */
+
+:root {
+  font-size: 62.5%;
+  
+  --hu: 195;
+
+  --color-base: hsla(195, 91%, 25%, 1);
+  --color-base-100: hsla(195, 46%, 40%, 1);
+  --bg-color: hsla(196, 100%, 98%, 1);
+  --white-color: hsla(0, 0%, 100%, 1);
+
+  --font-app: 'Mulish', sans-serif;
+}
+
+.app {
+ max-width: 43rem;
+  margin-inline: auto;
+}
+
+/* Estilização do Header */
+
+header {
+  background-color: var(--color-base);
+  height: 7.2rem;
+  padding: 1.2rem 2.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2.6rem;
+}
+
+header #logo {
+  background-color: var(--bg-color);
+  width: 4rem;
+  height: 4rem;
+  border-radius: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+header .avatar {
+  width: 4.2rem;
+  height: 4.2rem;
+  border-radius: 2rem;
+}
+
+header .input-wrapper {
+  display: flex;
+  gap: 2.5rem;
+}
+
+header .input-wrapper input {
+  width: 241px;
+  height: 40px;
+  border-radius: 4px;
+  background-color: var(--color-base-100);
+  border-style: none;
+  outline: blue;
+}
+
+.input-wrapper label{
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+}
+
+header .input-wrapper input::placeholder {
+  color: var(--white-color);
+  padding-left: 1.4rem;
+  font-family: var(--font-app);
+  font-size: 16px;
+  opacity: 0.8;
+}
+
+
+/* Estilização do main */
+
+main #coverCat {
+  width: 100%;
+  height: 21.9rem;
+  object-fit: cover;
+  margin-bottom: 3.1rem;
+}
+
+main h2 {
+  font-family:var(--font-app);
+  margin-left: 2.2rem;
+  font-size: 2.4rem;
+  margin-bottom: .8rem;
+}
+
+main #assessment {
+  display: flex;
+  margin-left: 2.2rem;
+  gap: 1.2rem;
+  margin-bottom: 2.1rem;
+}
+
+#like, #deslike{
+  background-color: var(--color-base);
+  width: 4rem;
+  height: 4rem;
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 2rem;
+  border: none;
+  cursor: pointer;
+}
+
+#deslike:hover, #like:hover {
+  background-color: rgb(6, 75, 99);;
+}
+
+main p {
+  font-family: var(--font-app);
+  font-size: 1.6rem;
+  line-height: 2.5rem;
+
+  width: 38.2rem;
+  margin: 0 auto;
+  margin-bottom: 3.4rem;
+}
+
+/* Estilização do Article */
+
+main .sideBar h2 {
+  margin-bottom: 2.4rem;
+}
+
+main .sideBar {
+  list-style: none;
+}
+
+article .testGrid {
+  display: grid;
+  grid-template: 
+  "A B B"
+  "A C C";
+
+  padding-left: 2.2rem;
+  gap: .4rem 1.5rem;
+  height: 11.5rem;
+  margin-bottom: 3.2rem;
+}
+
+
+.testGrid img {
+  width: 15rem;
+  height: 8.4rem;
+  border-radius: .5rem;
+  object-fit: cover;
+  grid-area: A;
+}
+
+.testGrid span {
+  font-family: var(--font-app);
+  font-size: 1.8rem;
+  font-weight: 700;
+  
+  grid-area: B;
+}
+
+.testGrid p {
+  font-family: var(--font-app);
+  font-size: 1.4rem;
+  width: 21.5rem;
+  grid-area: C;
+
+  margin-right: 6.4rem;
+} 
+
+footer {
+  font-family: var(--font-app);
+  height: 6.4rem;
+  
+  background-color: var(--color-base);
+}
+
+footer p {
+  color: var(--white-color);
+  text-align: center;
+  font-size: 1.6rem;
+  padding-top: 2.6rem;
+}
+
+ .testGrid {
+  --delay: .4s;
+  animation: grow .4s var(--delay) backwards;
+}
+
+@keyframes grow {
+  0%{
+    opacity: 0;
+    transform: scale(0.7);
+  }
+
+  50%{
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+
+#coverCat, .container, main p {
+  animation: appear 1s ;
+}
+
+@keyframes appear {
+  0%{
+    transform: translateX(-100%);
+  }
+}
+
+
+
+
+
+@media(min-width: 890px) {
+  .app {
+    max-width: 100%;
+    background-color: hsl(196, 100%, 98%); 
+  }
+
+  header {
+    margin-bottom: 4.4rem;
+  }
+
+  header form {
+    margin: 0 auto;
+  }
+
+  .input-wrapper #search {
+    width: 111.4rem;
+  }
+  
+  main {
+    display: grid;
+    grid-template-areas: 
+    "A A D"
+    "B B D"
+    "C C D";
+    /* overflow: scroll;
+    height: 100vh; */
+  }
+
+  main figcaption {
+    grid-area: A;
+  }
+
+  main .container {
+    grid-area: B;
+  }
+
+  main p {
+    grid-area: C;
+  }
+
+  main .sideBar {
+    grid-area: D;
+  }
+
+  main #coverCat {
+    width: 80rem;
+    height: 40rem;
+
+    margin-left: 10.9rem;
+  }
+
+  main .container {
+    display: flex;
+    gap: 34.2rem;
+    margin-left: 8.6rem;
+    margin-bottom: 3.1rem;
+  }
+
+  main .paragraphyMain {
+    width: 80rem;
+    height: 40rem;
+    margin-left: 10.9rem;
+  }
+
+  main .sideBar {
+    padding-left: 5.5rem;
+  }
+
+  ol p {
+    height: 5.5rem;
+  }
+
+  ol {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+}
